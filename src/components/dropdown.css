@@ -1,7 +1,6 @@
 .dropdown {
   position: absolute;
   z-index: 1000;
-  transform: translateY(-1.1rem);
   background: var(--clr-elements);
   width: 100%;
   min-width: 13rem;

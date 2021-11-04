@@ -40,7 +40,7 @@ const CountryDetail = ({ icon }) => {
         </button>
         <div className="detail-flex">
           {detail.flag}
-          <div>
+          <div className="detail-div">
             <h1 className="detail-name">{detail.name}</h1>
             <div className="detail-p-flex">
               <p className="detail-info">
