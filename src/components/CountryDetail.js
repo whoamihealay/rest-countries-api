@@ -35,8 +35,8 @@ const CountryDetail = ({ icon }) => {
   return (
     <main className="container">
       <section className="detail-section">
-        <button className="btn-back">
-          {icon} <p className="p-back">Back</p>
+        <button className="back-btn">
+          {icon} <p className="back-p">Back</p>
         </button>
         <div className="detail-flex">
           {detail.flag}
@@ -60,7 +60,7 @@ const CountryDetail = ({ icon }) => {
             <h2 className="detail-border">Border Countries: </h2>
             <div className="border-div">
               {detail.borderCountries.map((border) => (
-                <button className="btn-border">{border}</button>
+                <button className="border-btn">{border}</button>
               ))}
             </div>
           </div>

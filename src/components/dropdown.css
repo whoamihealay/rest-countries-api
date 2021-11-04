@@ -1,3 +1,5 @@
+/* Classes in order from Top to Bottom, Left to Right */
+
 .dropdown {
   position: absolute;
   z-index: 1000;

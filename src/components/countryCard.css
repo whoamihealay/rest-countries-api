@@ -1,3 +1,5 @@
+/* Classes in order from Top to Bottom, Left to Right */
+
 .country-card {
   background: var(--clr-elements);
   border-radius: var(--border-rad);

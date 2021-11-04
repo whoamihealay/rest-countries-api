@@ -1,4 +1,8 @@
+/* Classes in order from Top to Bottom, Left to Right */
+
 .header {
+  display: flex;
+  gap: 1rem;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
@@ -16,6 +20,8 @@
   font-size: var(--fs-400);
   font-weight: 600;
 }
+
+/* Media Queries */
 
 /* Tablet */
 @media screen and (min-width: 481px) {

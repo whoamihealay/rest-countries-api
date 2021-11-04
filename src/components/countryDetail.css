@@ -1,35 +1,43 @@
+/* Common properties classes */
+
+.back-btn,
+.border-btn {
+  background: var(--clr-elements);
+  color: var(--clr-text);
+}
+
+/* Classes in order from Top to Bottom, Left to Right */
+
 .detail-section {
   margin: 0 1rem;
 }
 
-.btn-back {
+.back-btn {
   margin: 2rem 0 2rem 0;
-  background: var(--clr-elements);
-  border-radius: 0.2rem;
+  border-radius: var(--border-rad);
   display: inline-flex;
   align-items: center;
-  color: var(--clr-text);
   border: var(--border-shadow);
   padding: 0.25rem;
 }
 
-.btn-back:hover,
-.btn-back:active {
+.back-btn:hover,
+.back-btn:active {
   background: var(--clr-hover);
 }
 
-.p-back {
+.back-icon {
+  margin-left: 1.5rem;
+  margin-right: 0.25rem;
+}
+
+.back-p {
   font-size: var(--fs-500);
   margin-left: 0.25rem;
   margin-right: 1.5rem;
 }
 
-.arrow-icon {
-  margin-left: 1.5rem;
-  margin-right: 0.25rem;
-}
-
-.detail-section img {
+.detail-flex img {
   max-width: 315px;
   margin: 0 auto;
 }
@@ -57,13 +65,8 @@
   grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
 }
 
-.btn-border {
-  background: var(--clr-elements);
-  color: var(--clr-text);
-}
-
-.btn-border:hover,
-.btn-border:active {
+.border-btn:hover,
+.border-btn:active {
   background: var(--clr-hover);
 }
 
@@ -73,15 +76,15 @@
 
 /* Laptop Screen */
 @media screen and (min-width: 769px) {
-  .detail-section img {
-    max-width: 40%;
-    margin: 0;
-    padding: 0 1rem;
-  }
-
   .detail-flex {
     display: flex;
     gap: 1rem;
+  }
+
+  .detail-flex img {
+    max-width: 40%;
+    margin: 0;
+    padding: 0 1rem;
   }
 
   .detail-div {
@@ -105,7 +108,7 @@
   .detail-flex {
     gap: 3rem;
   }
-  .detail-section img {
+  .detail-flex img {
     max-width: 50%;
   }
 

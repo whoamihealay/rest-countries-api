@@ -10,7 +10,7 @@ import CountryDetail from "./components/CountryDetail";
 function App() {
   const searchIcon = <FaSearch className="search-icon" />;
   const filtericon = <FaCaretDown className="filter-icon" />;
-  const arrowIcon = <FaArrowLeft className="arrow-icon" />;
+  const backIcon = <FaArrowLeft className="back-icon" />;
 
   return (
     <div className="App">
@@ -22,16 +22,9 @@ function App() {
         </section>
         <section className="country-grid">
           <CountryCard />
-          <CountryCard />
-          <CountryCard />
-          <CountryCard />
-          <CountryCard />
-          <CountryCard />
-          <CountryCard />
-          <CountryCard />
         </section>
       </main>
-      <CountryDetail icon={arrowIcon} />
+      <CountryDetail icon={backIcon} />
     </div>
   );
 }
