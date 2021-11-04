@@ -1,0 +1,27 @@
+.search-wrapper {
+  margin: 1rem 0;
+  background: var(--clr-elements);
+  border-radius: var(--border-rad);
+  display: inline-flex;
+  align-items: center;
+  border: var(--border-shadow);
+}
+
+.search-bar {
+  background: var(--clr-elements);
+  color: var(--clr-text);
+  font-size: var(--fs-500);
+  border-radius: var(--border-rad);
+  height: 4rem;
+  width: 100%;
+}
+
+.search-bar:focus {
+  outline: none;
+}
+
+.search-icon {
+  margin: 0 2rem;
+  transform: scale(2);
+  color: var(--clr-text);
+}

@@ -1,0 +1,17 @@
+.filter-btn {
+  position: relative;
+  margin: 1rem 0;
+  height: 4rem;
+  min-width: 13rem;
+  max-width: 17rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  background: var(--clr-elements);
+  border-radius: var(--border-rad);
+  font-size: var(--fs-500);
+  font-weight: 600;
+  color: var(--clr-text);
+}

@@ -1,0 +1,22 @@
+.country-card {
+  background: var(--clr-elements);
+  border-radius: var(--border-rad);
+  margin: 1rem 2rem;
+  border: var(--border-shadow);
+}
+
+.country-card img {
+  border-top-left-radius: var(--border-rad);
+  border-top-right-radius: var(--border-rad);
+}
+
+.country-name {
+  font-size: var(--fs-500);
+  font-weight: 800;
+  padding: 1rem 1.5rem;
+}
+
+.country-basic-info {
+  font-size: var(--fs-300);
+  padding: 0 1.5rem 3rem 1.5rem;
+}

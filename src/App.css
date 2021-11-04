@@ -1,0 +1,14 @@
+.App {
+  min-width: 300px;
+}
+
+.search-section {
+  margin: 1rem 0;
+  flex-direction: column;
+}
+
+.country-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
+}
