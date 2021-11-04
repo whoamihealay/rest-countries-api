@@ -5,7 +5,7 @@ const CountryCard = () => {
   const country = {
     flag: (
       <img
-        classname="flag"
+        className="flag"
         src="https://flagcdn.com/de.svg"
         alt="flag of germany"
       ></img>

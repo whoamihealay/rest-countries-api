@@ -5,7 +5,7 @@ const CountryDetail = ({ icon }) => {
   const detail = {
     flag: (
       <img
-        classname="flag"
+        className="flag"
         src="https://flagcdn.com/de.svg"
         alt="flag of germany"
       />
@@ -60,7 +60,9 @@ const CountryDetail = ({ icon }) => {
             <h2 className="detail-border">Border Countries: </h2>
             <div className="border-div">
               {detail.borderCountries.map((border) => (
-                <button className="border-btn">{border}</button>
+                <button className="border-btn" key={border}>
+                  {border}
+                </button>
               ))}
             </div>
           </div>
