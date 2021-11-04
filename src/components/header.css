@@ -16,3 +16,15 @@
   font-size: var(--fs-400);
   font-weight: 600;
 }
+
+/* Tablet */
+@media screen and (min-width: 481px) {
+}
+
+/* Laptop Screen */
+@media screen and (min-width: 769px) {
+}
+
+/* Desktop Screen */
+@media screen and (min-width: 1025) {
+}

@@ -3,6 +3,8 @@
 }
 
 .search-section {
+  display: flex;
+  gap: 1rem;
   margin: 1rem 0;
   flex-direction: column;
 }
@@ -11,4 +13,20 @@
   display: grid;
   gap: 2rem;
   grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
+}
+
+/* Tablet */
+@media screen and (min-width: 481px) {
+}
+
+/* Laptop Screen */
+@media screen and (min-width: 769px) {
+  .search-section {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+/* Desktop Screen */
+@media screen and (min-width: 1025) {
 }

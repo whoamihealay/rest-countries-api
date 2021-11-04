@@ -3,6 +3,8 @@
   border-radius: var(--border-rad);
   margin: 1rem 2rem;
   border: var(--border-shadow);
+  max-width: 17rem;
+  justify-self: center;
 }
 
 .country-card img {
@@ -19,4 +21,19 @@
 .country-basic-info {
   font-size: var(--fs-300);
   padding: 0 1.5rem 3rem 1.5rem;
+}
+
+/* Tablet */
+@media screen and (min-width: 481px) {
+  .country-card {
+    width: 17rem;
+  }
+}
+
+/* Laptop Screen */
+@media screen and (min-width: 769px) {
+}
+
+/* Desktop Screen */
+@media screen and (min-width: 1025) {
 }

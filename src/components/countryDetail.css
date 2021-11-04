@@ -1,5 +1,9 @@
+.detail-section {
+  margin: 0 1rem;
+}
+
 .btn-back {
-  margin: 1rem 0;
+  margin: 2rem 0 4rem 0;
   background: var(--clr-elements);
   border-radius: 0.2rem;
   display: inline-flex;
@@ -7,6 +11,11 @@
   color: var(--clr-text);
   border: var(--border-shadow);
   padding: 0.25rem;
+}
+
+.btn-back:hover,
+.btn-back:active {
+  background: var(--clr-hover);
 }
 
 .p-back {
@@ -20,10 +29,15 @@
   margin-right: 0.25rem;
 }
 
+.detail-section img {
+  max-width: 315px;
+  margin: 0 auto;
+}
+
 .detail-name {
   font-size: var(--fs-500);
   font-weight: 800;
-  padding: 1rem 0;
+  padding: 2rem 0 1rem 0;
 }
 
 .detail-info {
@@ -37,7 +51,7 @@
 }
 
 .border-div {
-  margin: 1rem 0;
+  padding: 1rem 0;
   display: grid;
   gap: 0.5rem;
   grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
@@ -46,4 +60,36 @@
 .btn-border {
   background: var(--clr-elements);
   color: var(--clr-text);
+}
+
+.btn-border:hover,
+.btn-border:active {
+  background: var(--clr-hover);
+}
+
+/* Tablet */
+@media screen and (min-width: 481px) {
+}
+
+/* Laptop Screen */
+@media screen and (min-width: 769px) {
+  .detail-section img {
+    max-width: 315px;
+    margin: 0;
+    padding: 0 1rem;
+  }
+
+  .detail-flex {
+    display: flex;
+    justify-content: space-around;
+  }
+  .detail-p-flex {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+}
+
+/* Desktop Screen */
+@media screen and (min-width: 1025) {
 }

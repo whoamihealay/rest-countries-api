@@ -6,7 +6,9 @@
   /* Primary */
   /* Neutral */
   --clr-black: hsl(0, 0%, 0%);
+  --clr-gray: hsl(0, 0%, 50%);
   --clr-white: hsl(0, 0%, 100%);
+  --clr-hover: hsla(0, 0%, 50%, 0.3);
 
   /* Typography */
   --ff-sans-normal: "Nunito Sans", sans-serif;
@@ -168,4 +170,16 @@ select {
   padding-inline: 1em;
   margin-inline: auto;
   max-width: 80rem;
+}
+
+/* Tablet */
+@media screen and (min-width: 481px) {
+}
+
+/* Laptop Screen */
+@media screen and (min-width: 769px) {
+}
+
+/* Desktop Screen */
+@media screen and (min-width: 1025) {
 }

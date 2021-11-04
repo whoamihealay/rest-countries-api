@@ -34,29 +34,38 @@ const CountryDetail = ({ icon }) => {
 
   return (
     <main className="container">
-      <button className="btn-back">
-        {icon} <p className="p-back">Back</p>
-      </button>
-      {detail.flag}
-      <h1 className="detail-name">{detail.name}</h1>
-      <p className="detail-info">
-        <b>Native Name:</b> {detail.nativeName} <br />
-        <b>Population:</b> {detail.population} <br />
-        <b>Region:</b> {detail.region} <br />
-        <b>Sub Region:</b> {detail.subregion} <br />
-        <b>Capital:</b> {detail.capital} <br />
-      </p>
-      <p className="detail-info">
-        <b>Top Level Domain:</b> {detail.topLevelDomain} <br />
-        <b>Currencies:</b> {detail.currencies} <br />
-        <b>Languages:</b> {detail.languages.map((language) => ` ${language}`)}{" "}
-      </p>
-      <h2 className="detail-border">Border Countries: </h2>
-      <div className="border-div">
-        {detail.borderCountries.map((border) => (
-          <button className="btn-border">{border}</button>
-        ))}
-      </div>
+      <section className="detail-section">
+        <button className="btn-back">
+          {icon} <p className="p-back">Back</p>
+        </button>
+        <div className="detail-flex">
+          {detail.flag}
+          <div>
+            <h1 className="detail-name">{detail.name}</h1>
+            <div className="detail-p-flex">
+              <p className="detail-info">
+                <b>Native Name:</b> {detail.nativeName} <br />
+                <b>Population:</b> {detail.population} <br />
+                <b>Region:</b> {detail.region} <br />
+                <b>Sub Region:</b> {detail.subregion} <br />
+                <b>Capital:</b> {detail.capital} <br />
+              </p>
+              <p className="detail-info">
+                <b>Top Level Domain:</b> {detail.topLevelDomain} <br />
+                <b>Currencies:</b> {detail.currencies} <br />
+                <b>Languages:</b>{" "}
+                {detail.languages.map((language) => ` ${language}`)}{" "}
+              </p>
+            </div>
+            <h2 className="detail-border">Border Countries: </h2>
+            <div className="border-div">
+              {detail.borderCountries.map((border) => (
+                <button className="btn-border">{border}</button>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
   );
 };

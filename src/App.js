@@ -16,15 +16,22 @@ function App() {
     <div className="App">
       <Header />
       <main className="container">
-        <section className="search-section flex">
+        <section className="search-section">
           <Search icon={searchIcon} />
           <Filter icon={filtericon} />
         </section>
         <section className="country-grid">
           <CountryCard />
-          <CountryDetail icon={arrowIcon} />
+          <CountryCard />
+          <CountryCard />
+          <CountryCard />
+          <CountryCard />
+          <CountryCard />
+          <CountryCard />
+          <CountryCard />
         </section>
       </main>
+      <CountryDetail icon={arrowIcon} />
     </div>
   );
 }

@@ -10,7 +10,7 @@ const Filter = ({ icon }) => {
   };
 
   return (
-    <div>
+    <div className="filter-wrapper">
       <button className="filter-btn" onClick={toggleDropdown}>
         Filter by Region
         {icon}

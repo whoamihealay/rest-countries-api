@@ -25,3 +25,19 @@
   transform: scale(2);
   color: var(--clr-text);
 }
+
+/* Tablet */
+@media screen and (min-width: 481px) {
+}
+
+/* Laptop Screen */
+@media screen and (min-width: 769px) {
+  .search-wrapper {
+    max-width: 485px;
+    width: 100%;
+  }
+}
+
+/* Desktop Screen */
+@media screen and (min-width: 1025) {
+}

@@ -1,6 +1,11 @@
+.filter-wrapper {
+  margin: 1rem 0;
+  border: var(--border-shadow);
+  border-radius: var(--border-rad);
+}
+
 .filter-btn {
   position: relative;
-  margin: 1rem 0;
   height: 4rem;
   min-width: 13rem;
   max-width: 17rem;
@@ -14,4 +19,25 @@
   font-size: var(--fs-500);
   font-weight: 600;
   color: var(--clr-text);
+}
+
+@media screen and (min-width: 750px) {
+  .filter-btn {
+    width: 17rem;
+  }
+}
+
+/* Tablet */
+@media screen and (min-width: 481px) {
+}
+
+/* Laptop Screen */
+@media screen and (min-width: 769px) {
+  .filter-btn {
+    width: 17rem;
+  }
+}
+
+/* Desktop Screen */
+@media screen and (min-width: 1025) {
 }

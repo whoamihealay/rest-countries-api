@@ -1,13 +1,14 @@
 .dropdown {
   position: absolute;
   z-index: 1000;
-  top: 18.3rem;
+  transform: translateY(-1.1rem);
   background: var(--clr-elements);
   width: 100%;
   min-width: 13rem;
   max-width: 17rem;
   border-radius: var(--border-rad);
   padding: 1rem;
+  border: var(--border-shadow);
 }
 
 .dropdown-item {
