@@ -1,14 +1,15 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
+// HashRouter only for Gh-pages, replace by BrowserRouter
 import "./App.css";
-
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from "./components/Home";
 
 import CountryDetail from "./components/CountryDetail";
 import { FaArrowLeft } from "react-icons/fa";
+
+import ApiState from "./context/api/ApiState";
 
 function App() {
   const backIcon = <FaArrowLeft className="back-icon" />;
@@ -26,20 +27,22 @@ function App() {
   };
 
   return (
-    <Router>
-      <div className="App">
-        <Header toggleTheme={toggleTheme} theme={theme} />
-        <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route
-            exact
-            path="/germany"
-            element={<CountryDetail icon={backIcon} />}
-          />
-        </Routes>
-        <Footer />
-      </div>
-    </Router>
+    <ApiState>
+      <Router>
+        <div className="App">
+          <Header toggleTheme={toggleTheme} theme={theme} />
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+            <Route
+              exact
+              path="/:countryname"
+              element={<CountryDetail icon={backIcon} />}
+            />
+          </Routes>
+          <Footer />
+        </div>
+      </Router>
+    </ApiState>
   );
 }
 
