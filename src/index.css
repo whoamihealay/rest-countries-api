@@ -60,9 +60,7 @@ h5,
 h6,
 p,
 figure,
-picture,
-.App,
-#root {
+picture {
   margin: 0;
 }
 

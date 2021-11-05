@@ -19,6 +19,7 @@
 .theme-btn {
   font-size: var(--fs-400);
   font-weight: 600;
+  cursor: pointer;
 }
 
 /* Media Queries */
