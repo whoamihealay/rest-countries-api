@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 import "./App.css";
-import Filter from "./components/Filter";
+
 import Header from "./components/Header";
-import Search from "./components/Search";
-import { FaSearch, FaCaretDown, FaArrowLeft } from "react-icons/fa";
-import CountryCard from "./components/CountryCard";
-import CountryDetail from "./components/CountryDetail";
 import Footer from "./components/Footer";
+import Home from "./components/Home";
+
+import CountryDetail from "./components/CountryDetail";
+import { FaArrowLeft } from "react-icons/fa";
 
 function App() {
-  const searchIcon = <FaSearch className="search-icon" />;
-  const filtericon = <FaCaretDown className="filter-icon" />;
   const backIcon = <FaArrowLeft className="back-icon" />;
   const [theme, setTheme] = useState("light");
   const body = document.body;
@@ -26,20 +26,20 @@ function App() {
   };
 
   return (
-    <div className={`App`}>
-      <Header toggleTheme={toggleTheme} theme={theme} />
-      <main className="container">
-        <section className="search-section">
-          <Search icon={searchIcon} />
-          <Filter icon={filtericon} />
-        </section>
-        <section className="country-grid">
-          <CountryCard />
-        </section>
-      </main>
-      <CountryDetail icon={backIcon} />
-      <Footer />
-    </div>
+    <Router>
+      <div className="App">
+        <Header toggleTheme={toggleTheme} theme={theme} />
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route
+            exact
+            path="/germany"
+            element={<CountryDetail icon={backIcon} />}
+          />
+        </Routes>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 

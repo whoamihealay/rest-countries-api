@@ -7,6 +7,7 @@
   border: var(--border-shadow);
   max-width: 17rem;
   justify-self: center;
+  color: var(--clr-text);
 }
 
 .country-card img {

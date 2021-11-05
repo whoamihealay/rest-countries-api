@@ -9,7 +9,8 @@
 /* Classes in order from Top to Bottom, Left to Right */
 
 .detail-section {
-  margin: 0 1rem;
+  margin: 1rem;
+  padding-bottom: 5rem;
 }
 
 .back-btn {

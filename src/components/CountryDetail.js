@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./countryDetail.css";
 
 const CountryDetail = ({ icon }) => {
@@ -35,9 +36,9 @@ const CountryDetail = ({ icon }) => {
   return (
     <main className="container">
       <section className="detail-section">
-        <button className="back-btn">
+        <Link to="/" className="back-btn">
           {icon} <p className="back-p">Back</p>
-        </button>
+        </Link>
         <div className="detail-flex">
           {detail.flag}
           <div className="detail-div">

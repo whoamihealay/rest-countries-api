@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./countryCard.css";
 
 const CountryCard = () => {
@@ -17,7 +18,7 @@ const CountryCard = () => {
   };
 
   return (
-    <article className="country-card">
+    <Link to={`/germany`} className="country-card">
       {country.flag}
       <h1 className="country-name">{country.name}</h1>
 
@@ -28,7 +29,7 @@ const CountryCard = () => {
         <br />
         <b>Capital:</b> {country.capital}
       </p>
-    </article>
+    </Link>
   );
 };
 
