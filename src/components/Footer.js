@@ -3,8 +3,8 @@ import "./footer.css";
 
 const Footer = () => {
   return (
-    <footer class="footer">
-      <div class="attribution">
+    <footer className="footer">
+      <div className="attribution">
         Challenge by
         <a
           href="https://www.frontendmentor.io?ref=challenge"
