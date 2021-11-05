@@ -4,6 +4,7 @@ import {
   SEARCH_COUNTRY,
   FILTER_REGION,
   SET_LOADING,
+  ERROR,
 } from "../types";
 
 // eslint-disable-next-line import/no-anonymous-default-export
@@ -12,7 +13,7 @@ export default (state, action) => {
     case GET_ALL:
       return {
         ...state,
-        all: action.payload,
+        countries: action.payload,
         loading: false,
       };
     case GET_COUNTRY:
@@ -37,6 +38,12 @@ export default (state, action) => {
       return {
         ...state,
         loading: true,
+      };
+    case ERROR:
+      return {
+        ...state,
+        error: action.payload,
+        loading: false,
       };
     default:
       return state;

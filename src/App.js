@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // HashRouter only for Gh-pages, replace by BrowserRouter
 import "./App.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from "./components/Home";
+import Error from "./components/Error";
 
 import CountryDetail from "./components/CountryDetail";
 import { FaArrowLeft } from "react-icons/fa";
@@ -33,11 +34,13 @@ function App() {
           <Header toggleTheme={toggleTheme} theme={theme} />
           <Routes>
             <Route exact path="/" element={<Home />} />
+
             <Route
               exact
-              path="/:countryname"
+              path="/GER"
               element={<CountryDetail icon={backIcon} />}
             />
+            <Route element={<Error />} />
           </Routes>
           <Footer />
         </div>

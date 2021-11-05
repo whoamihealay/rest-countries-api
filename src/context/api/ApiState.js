@@ -9,11 +9,11 @@ import {
   SEARCH_COUNTRY,
   FILTER_REGION,
   SET_LOADING,
+  ERROR,
 } from "../types";
 
 const ApiState = (props) => {
   const initialState = {
-    all: [],
     countries: [],
     country: {},
     loading: false,
@@ -21,16 +21,16 @@ const ApiState = (props) => {
 
   const [state, dispatch] = useReducer(ApiReducer, initialState);
 
-  const getAll = () => {
+  const getAll = async () => {
     setLoading();
 
-    const res = axios.get(
+    const res = await axios.get(
       "https://restcountries.com/v2/all?fields=flags,name,population,region,capital"
     );
 
     dispatch({
       type: GET_ALL,
-      payload: res.data.items,
+      payload: res.data,
     });
   };
 
@@ -43,7 +43,7 @@ const ApiState = (props) => {
 
     dispatch({
       type: GET_COUNTRY,
-      payload: res.data.items,
+      payload: res.data,
     });
   };
 
@@ -54,10 +54,17 @@ const ApiState = (props) => {
       `https://restcountries.com/v2/name/${text}?fields=flags,name,population,region,capital`
     );
 
-    dispatch({
-      type: SEARCH_COUNTRY,
-      payload: res.data.items,
-    });
+    if (typeof res.data.status === "undefined") {
+      dispatch({
+        type: SEARCH_COUNTRY,
+        payload: res.data,
+      });
+    } else {
+      dispatch({
+        type: ERROR,
+        payload: res.data,
+      });
+    }
   };
 
   const filterRegion = async (region) => {
@@ -69,7 +76,7 @@ const ApiState = (props) => {
 
     dispatch({
       type: FILTER_REGION,
-      payload: res.data.items,
+      payload: res.data,
     });
   };
 
@@ -78,7 +85,6 @@ const ApiState = (props) => {
   return (
     <ApiContext.Provider
       value={{
-        all: state.all,
         countries: state.countries,
         country: state.country,
         loading: state.loading,

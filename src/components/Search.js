@@ -1,15 +1,39 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import "./search.css";
 
+import ApiContext from "../context/api/apiContext";
+
 const Search = ({ icon }) => {
+  const apiContext = useContext(ApiContext);
+
+  const [text, setText] = useState("");
+
+  const onChange = (e) => {
+    setText(e.target.value);
+    if (text === "") {
+      apiContext.getAll();
+    } else {
+      apiContext.searchCountry(text);
+    }
+  };
+
+  const handleSubmit = (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+    }
+  };
+
   return (
-    <div className="search-wrapper">
+    <form className="search-wrapper">
       {icon}
       <input
         className="search-bar"
         placeholder="Search for a country..."
-      ></input>
-    </div>
+        onChange={onChange}
+        onKeyPress={handleSubmit}
+        value={text}
+      />
+    </form>
   );
 };
 

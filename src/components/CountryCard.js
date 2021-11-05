@@ -2,24 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./countryCard.css";
 
-const CountryCard = () => {
-  const country = {
-    flag: (
-      <img
-        className="flag"
-        src="https://flagcdn.com/de.svg"
-        alt="flag of germany"
-      ></img>
-    ),
-    name: "Germany",
-    population: "81.770.990",
-    region: "Europe",
-    capital: "Berlin",
-  };
-
+const CountryCard = ({ country }) => {
   return (
     <Link to={`/germany`} className="country-card">
-      {country.flag}
+      <img
+        className="flag"
+        src={country.flags.svg}
+        alt={`flag of ${country.name}`}
+      />
       <h1 className="country-name">{country.name}</h1>
 
       <p className="country-basic-info">
