@@ -1,26 +1,29 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 import "./countryCard.css";
 
 const CountryCard = ({ country }) => {
+  const { flags, name, population, region, capital } = country;
+
   return (
-    <Link to={`/germany`} className="country-card">
-      <img
-        className="flag"
-        src={country.flags.svg}
-        alt={`flag of ${country.name}`}
-      />
-      <h1 className="country-name">{country.name}</h1>
+    <Link to={`/country/${name}`} className="country-card">
+      <img className="flag" src={flags.svg} alt={`flag of ${name}`} />
+      <h1 className="country-name">{name}</h1>
 
       <p className="country-basic-info">
-        <b>Population:</b> {country.population}
+        <b>Population:</b> {population}
         <br />
-        <b>Region:</b> {country.region}
+        <b>Region:</b> {region}
         <br />
-        <b>Capital:</b> {country.capital}
+        <b>Capital:</b> {capital}
       </p>
     </Link>
   );
+};
+
+CountryCard.propTypes = {
+  country: PropTypes.object.isRequired,
 };
 
 export default CountryCard;

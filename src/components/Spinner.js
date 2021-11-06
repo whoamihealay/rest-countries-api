@@ -1,10 +1,11 @@
 import React from "react";
+import "./spinner.css";
 
 const Spinner = () => {
   return (
-    <div>
+    <div className="spinner-flex">
       <svg
-        style={spinnerStyle}
+        className="spinner"
         version="1.1"
         id="L7"
         xmlns="http://www.w3.org/2000/svg"
@@ -63,13 +64,6 @@ const Spinner = () => {
       </svg>
     </div>
   );
-};
-
-const spinnerStyle = {
-  width: "100px",
-  height: "100px",
-  margin: "20px",
-  display: "inline-block",
 };
 
 export default Spinner;

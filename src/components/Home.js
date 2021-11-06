@@ -16,6 +16,9 @@ const Home = () => {
   const searchIcon = <FaSearch className="search-icon" />;
   const filtericon = <FaCaretDown className="filter-icon" />;
 
+  console.log(loading);
+  console.log(countries);
+
   useEffect(() => {
     getAll();
     // eslint-disable-next-line react-hooks/exhaustive-deps

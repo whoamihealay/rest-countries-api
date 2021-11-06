@@ -34,10 +34,8 @@ function App() {
           <Header toggleTheme={toggleTheme} theme={theme} />
           <Routes>
             <Route exact path="/" element={<Home />} />
-
             <Route
-              exact
-              path="/GER"
+              path="/country/:countryName"
               element={<CountryDetail icon={backIcon} />}
             />
             <Route element={<Error />} />

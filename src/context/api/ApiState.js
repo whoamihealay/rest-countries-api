@@ -10,12 +10,25 @@ import {
   FILTER_REGION,
   SET_LOADING,
   ERROR,
+  CLEAR_COUNTRY,
 } from "../types";
 
 const ApiState = (props) => {
   const initialState = {
     countries: [],
-    country: {},
+    // eslint-disable-next-line no-restricted-globals
+    country: {
+      currencies: [],
+      languages: [],
+      name: "",
+      topLevelDomain: [],
+      capital: "",
+      subregion: "",
+      population: "",
+      borders: [],
+      nativeName: "",
+      flags: {},
+    },
     loading: false,
   };
 
@@ -35,16 +48,23 @@ const ApiState = (props) => {
   };
 
   const getCountry = async (countryName) => {
-    setLoading();
+    try {
+      setLoading();
 
-    const res = await axios.get(
-      `https://restcountries.com/v2/name/${countryName}?fields=flags,name,nativeName,population,region,subregion,capital,topLevelDomain,currencies,languages,borders`
-    );
+      const res = await axios.get(
+        `https://restcountries.com/v2/name/${countryName}?fields=flags,name,nativeName,population,region,subregion,capital,topLevelDomain,currencies,languages,borders,`
+      );
 
-    dispatch({
-      type: GET_COUNTRY,
-      payload: res.data,
-    });
+      dispatch({
+        type: GET_COUNTRY,
+        payload: res.data[0],
+      });
+    } catch (err) {
+      dispatch({
+        type: ERROR,
+        payload: err.response.statusText,
+      });
+    }
   };
 
   const searchCountry = async (text) => {
@@ -82,6 +102,8 @@ const ApiState = (props) => {
 
   const setLoading = () => dispatch({ type: SET_LOADING });
 
+  const clearCountry = () => dispatch({ type: CLEAR_COUNTRY });
+
   return (
     <ApiContext.Provider
       value={{
@@ -92,6 +114,7 @@ const ApiState = (props) => {
         getCountry,
         searchCountry,
         filterRegion,
+        clearCountry,
       }}
     >
       {props.children}

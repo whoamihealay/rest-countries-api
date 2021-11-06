@@ -5,10 +5,11 @@ import {
   FILTER_REGION,
   SET_LOADING,
   ERROR,
+  CLEAR_COUNTRY,
 } from "../types";
 
 // eslint-disable-next-line import/no-anonymous-default-export
-export default (state, action) => {
+const ApiReducer = (state, action) => {
   switch (action.type) {
     case GET_ALL:
       return {
@@ -39,6 +40,11 @@ export default (state, action) => {
         ...state,
         loading: true,
       };
+    case CLEAR_COUNTRY:
+      return {
+        ...state,
+        country: {},
+      };
     case ERROR:
       return {
         ...state,
@@ -49,3 +55,5 @@ export default (state, action) => {
       return state;
   }
 };
+
+export default ApiReducer;
