@@ -49,6 +49,7 @@ const ApiReducer = (state, action) => {
       return {
         ...state,
         error: action.payload,
+        countries: [],
         loading: false,
       };
     default:
