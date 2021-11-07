@@ -10,10 +10,10 @@ const Search = ({ icon }) => {
 
   const onChange = (e) => {
     setText(e.target.value);
-    if (text === "") {
-      apiContext.getAll();
+    if (e.target.value) {
+      apiContext.searchCountry(e.target.value);
     } else {
-      apiContext.searchCountry(text);
+      apiContext.getAll();
     }
   };
 

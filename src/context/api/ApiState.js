@@ -69,6 +69,8 @@ const ApiState = (props) => {
 
   const searchCountry = async (text) => {
     setLoading();
+    clearCountry();
+    console.log("At State:" + text);
 
     const res = await axios.get(
       `https://restcountries.com/v2/name/${text}?fields=flags,name,population,region,capital`

@@ -43,7 +43,7 @@ const ApiReducer = (state, action) => {
     case CLEAR_COUNTRY:
       return {
         ...state,
-        country: {},
+        countries: [],
       };
     case ERROR:
       return {
