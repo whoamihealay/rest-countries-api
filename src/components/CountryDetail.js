@@ -27,8 +27,6 @@ const CountryDetail = ({ icon }) => {
     borders,
   } = country;
 
-  console.log(country);
-
   useEffect(() => {
     getCountry(countryName);
     // eslint-disable-next-line react-hooks/exhaustive-deps
