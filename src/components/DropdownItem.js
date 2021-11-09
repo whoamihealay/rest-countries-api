@@ -1,9 +1,9 @@
 import React from "react";
 
-const DropdownItem = ({ text }) => {
+const DropdownItem = ({ id, region, onClick }) => {
   return (
-    <li id={text} className="dropdown-item">
-      {text}
+    <li id={id} className="dropdown-item" onClick={() => onClick(id)}>
+      {region}
     </li>
   );
 };

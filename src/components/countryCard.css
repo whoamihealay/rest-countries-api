@@ -13,6 +13,8 @@
 .flag {
   border-top-left-radius: var(--border-rad);
   border-top-right-radius: var(--border-rad);
+  width: 100%;
+  max-height: 12rem;
 }
 
 .country-name {
