@@ -1,5 +1,5 @@
 import React, { useEffect, useContext } from "react";
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import "./countryDetail.css";
 
 import Spinner from "./Spinner";
@@ -46,7 +46,11 @@ const CountryDetail = ({ icon }) => {
           <Spinner />
         ) : (
           <div className="detail-flex">
-            <img className="flag" src={flags.svg} alt={`flag of ${name}`} />
+            <img
+              className="detail-flag"
+              src={flags.svg}
+              alt={`flag of ${name}`}
+            />
             <div className="detail-div">
               <h1 className="detail-name">{name}</h1>
               <div className="detail-p-flex">
@@ -68,7 +72,7 @@ const CountryDetail = ({ icon }) => {
               <h2 className="detail-border">Border Countries: </h2>
               <div className="border-div">
                 {borders.map((border) => (
-                  <Link to={`/country/${border}`}>
+                  <Link to={`/country/${border}`} key={border}>
                     <button
                       className="border-btn"
                       key={border}
