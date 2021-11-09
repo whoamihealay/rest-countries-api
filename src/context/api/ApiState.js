@@ -93,7 +93,7 @@ const ApiState = (props) => {
     setLoading();
 
     const res = await axios.get(
-      `https://restcountries.com/v2/region/${region}?fields=flags,name,population,region,capital`
+      `https://restcountries.com/v2/region/${region}?fields=flags,name,population,region,capital,alpha3Code`
     );
 
     dispatch({
