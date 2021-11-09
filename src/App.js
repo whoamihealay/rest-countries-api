@@ -35,10 +35,10 @@ function App() {
           <Routes>
             <Route exact path="/" element={<Home />} />
             <Route
-              path="/country/:countryName"
+              path="country/:alpha"
               element={<CountryDetail icon={backIcon} />}
             />
-            <Route element={<Error />} />
+            <Route path="*" element={<Error />} />
           </Routes>
           <Footer />
         </div>

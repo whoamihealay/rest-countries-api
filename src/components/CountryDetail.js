@@ -1,5 +1,5 @@
 import React, { useEffect, useContext } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import "./countryDetail.css";
 
 import Spinner from "./Spinner";
@@ -9,9 +9,13 @@ import ApiContext from "../context/api/apiContext";
 const CountryDetail = ({ icon }) => {
   const apiContext = useContext(ApiContext);
 
-  let { countryName } = useParams();
+  let { alpha } = useParams();
 
   const { loading, getCountry, country } = apiContext;
+
+  const handleNav = (dest) => {
+    getCountry(dest);
+  };
 
   const {
     flags,
@@ -28,7 +32,7 @@ const CountryDetail = ({ icon }) => {
   } = country;
 
   useEffect(() => {
-    getCountry(countryName);
+    getCountry(alpha);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -64,9 +68,15 @@ const CountryDetail = ({ icon }) => {
               <h2 className="detail-border">Border Countries: </h2>
               <div className="border-div">
                 {borders.map((border) => (
-                  <button className="border-btn" key={border}>
-                    {border}
-                  </button>
+                  <Link to={`/country/${border}`}>
+                    <button
+                      className="border-btn"
+                      key={border}
+                      onClick={() => handleNav(border)}
+                    >
+                      {border}
+                    </button>
+                  </Link>
                 ))}
               </div>
             </div>

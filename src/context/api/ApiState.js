@@ -28,6 +28,7 @@ const ApiState = (props) => {
       borders: [],
       nativeName: "",
       flags: {},
+      alpha3Code: "",
     },
     loading: false,
   };
@@ -40,7 +41,7 @@ const ApiState = (props) => {
     setLoading();
 
     const res = await axios.get(
-      "https://restcountries.com/v2/all?fields=flags,name,population,region,capital"
+      "https://restcountries.com/v2/all?fields=flags,name,population,region,capital,alpha3Code"
     );
 
     dispatch({
@@ -51,15 +52,15 @@ const ApiState = (props) => {
 
   // getCountry: Sends GET to /name/ endpoint with Name of the country as variable from CountryCard Component. Fields to reduce payload size. If more info needed, add fields.
 
-  const getCountry = async (countryName) => {
+  const getCountry = async (countryCode) => {
     setLoading();
 
     const res = await axios.get(
-      `https://restcountries.com/v2/name/${countryName}?fields=flags,name,nativeName,population,region,subregion,capital,topLevelDomain,currencies,languages,borders,`
+      `https://restcountries.com/v2/alpha/${countryCode}?fields=flags,name,nativeName,population,region,subregion,capital,topLevelDomain,currencies,languages,borders,alpha3Code`
     );
     dispatch({
       type: GET_COUNTRY,
-      payload: res.data[0],
+      payload: res.data,
     });
   };
 

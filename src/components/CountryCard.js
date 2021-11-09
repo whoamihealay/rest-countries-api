@@ -4,10 +4,10 @@ import PropTypes from "prop-types";
 import "./countryCard.css";
 
 const CountryCard = ({ country }) => {
-  const { flags, name, population, region, capital } = country;
+  const { flags, name, population, region, capital, alpha3Code } = country;
 
   return (
-    <Link to={`/country/${name}`} className="country-card">
+    <Link to={`/country/${alpha3Code}`} className="country-card">
       <img className="flag" src={flags.svg} alt={`flag of ${name}`} />
       <h1 className="country-name">{name}</h1>
 
