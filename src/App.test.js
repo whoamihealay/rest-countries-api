@@ -1,8 +1,9 @@
-import { cleanup, render, screen } from "@testing-library/react";
+import { cleanup, render } from "@testing-library/react";
+import "@testing-library/jest-dom";
 import App from "./App";
 
 afterEach(cleanup);
 
-test("tbd", () => {
+test("App.js", () => {
   render(<App />);
 });
