@@ -1,8 +1,8 @@
 import React from "react";
 
-const DropdownItem = ({ id, region, onClick }) => {
+const DropdownItem = ({ region, onClick }) => {
   return (
-    <li id={id} className="dropdown-item" onClick={() => onClick(id)}>
+    <li className="dropdown-item" onClick={() => onClick(region)}>
       {region}
     </li>
   );

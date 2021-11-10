@@ -13,11 +13,11 @@ const Dropdown = () => {
 
   return (
     <ul className="dropdown">
-      <DropdownItem id="africa" region="Africa" onClick={handleFilter} />
-      <DropdownItem id="americas" region="Americas" onClick={handleFilter} />
-      <DropdownItem id="asia" region="Asia" onClick={handleFilter} />
-      <DropdownItem id="europe" region="Europe" onClick={handleFilter} />
-      <DropdownItem id="oceania" region="Oceania" onClick={handleFilter} />
+      <DropdownItem region="Africa" onClick={handleFilter} />
+      <DropdownItem region="Americas" onClick={handleFilter} />
+      <DropdownItem region="Asia" onClick={handleFilter} />
+      <DropdownItem region="Europe" onClick={handleFilter} />
+      <DropdownItem region="Oceania" onClick={handleFilter} />
     </ul>
   );
 };

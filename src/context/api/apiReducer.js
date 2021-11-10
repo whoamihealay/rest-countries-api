@@ -16,6 +16,7 @@ const ApiReducer = (state, action) => {
         ...state,
         countries: action.payload,
         loading: false,
+        searchActive: false,
       };
     case GET_COUNTRY:
       return {
@@ -28,6 +29,7 @@ const ApiReducer = (state, action) => {
         ...state,
         countries: action.payload,
         loading: false,
+        searchActive: true,
       };
     case FILTER_REGION:
       return {

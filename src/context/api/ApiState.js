@@ -31,6 +31,7 @@ const ApiState = (props) => {
       alpha3Code: "",
     },
     loading: false,
+    searchActive: false,
   };
 
   const [state, dispatch] = useReducer(ApiReducer, initialState);
@@ -91,14 +92,32 @@ const ApiState = (props) => {
   const filterRegion = async (region) => {
     setLoading();
 
-    const res = await axios.get(
-      `https://restcountries.com/v2/region/${region}?fields=flags,name,population,region,capital,alpha3Code`
-    );
+    if (state.searchActive === true) {
+      const filterByRegion = (item) => {
+        if (item.region === `${region}`) {
+          return true;
+        }
+        return false;
+      };
 
-    dispatch({
-      type: FILTER_REGION,
-      payload: res.data,
-    });
+      const res = state.countries.filter(filterByRegion);
+
+      console.log(res);
+
+      dispatch({
+        type: FILTER_REGION,
+        payload: res,
+      });
+    } else {
+      const res = await axios.get(
+        `https://restcountries.com/v2/region/${region}?fields=flags,name,population,region,capital,alpha3Code`
+      );
+
+      dispatch({
+        type: FILTER_REGION,
+        payload: res.data,
+      });
+    }
   };
 
   // setLoading: sets loading to true while GET requets are fullfilled.
