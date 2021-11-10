@@ -54,7 +54,7 @@ const CountryDetail = ({ icon }) => {
               alt={`flag of ${name}`}
             />
             <div className="detail-div">
-              <h1 className="detail-name">{name}</h1>
+              <h2 className="detail-name">{name}</h2>
               <div className="detail-p-flex">
                 <p className="detail-info">
                   <b>Native Name:</b> {nativeName} <br />
@@ -71,7 +71,7 @@ const CountryDetail = ({ icon }) => {
                   {languages.map((language) => `${language.name} `)}
                 </p>
               </div>
-              <h2 className="detail-border">Border Countries: </h2>
+              <h3 className="detail-border">Border Countries: </h3>
               <div className="border-div">
                 {borders.map((border) => (
                   <Link to={`/country/${border}`} key={border}>

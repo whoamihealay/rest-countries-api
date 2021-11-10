@@ -24,10 +24,13 @@ const Home = () => {
   return (
     <main className="container">
       <section className="search-section">
+        <h2 className="sr-only">Search Bar</h2>
         <Search icon={searchIcon} />
+        <h2 className="sr-only">Filter Dropdown</h2>
         <Filter icon={filtericon} />
       </section>
       <section className="country-grid">
+        <h1 className="sr-only">List of Countries</h1>
         {loading ? (
           <Spinner />
         ) : (
