@@ -98,9 +98,14 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ### What I learned
 
-- Context
-- API needs for frontend
-- Error handling
+- I learned how to implement Context with State Actions and Reducers. I am really happy with my apiState.js and apiReducer.js files. The search bar and Filter dropdown both interact with the state of the Countries array in a way that they both check if one another are active and function accordingly.
+
+- On a full-stack side-project of mine I wrote a Django API Backend and React Frontend. Before this challenge I didn't know what API endpoints I would need/use. That resulted in a lot a data manipulation on the frontend and few Api endpoints. Thanks to FrontendMentor I have a better understanding what the frontend needs.
+
+- This challenge is a turning point for me. I focused heavily on my workflow. <br> <br>Let's recap: I broke down the challenge into features: UI(Backgroungd, Header), UI components(SearchBar, Filter Button, Country Cards, Country Detail), Navigation(From the country card to the detail page), State (Context), Functions( Search Bar, Filter and DarkMode) and Unplanned. After each feature I would merge back to a develop branch (or experimental if I expected a few merge conflicts) and do some refactoring, commenting and/or small fixes. <br><br>
+  Then I asked my partner in crime (and wife) to find ways to break the app. She succeeded every single time up to v1.3. She is the sweetest human being I know but when it comes to testing she is pure chaos!
+  <br><br>
+  Finally, I merge to main with a version tag and deploy to GitHug pages !
 
 ### Continued development
 
@@ -125,4 +130,4 @@ Use this section to outline areas that you want to continue focusing on in futur
 
 ## Acknowledgments
 
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
+A huge thank you to my wife Andrea for her unconditional support and love.
