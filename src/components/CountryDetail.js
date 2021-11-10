@@ -66,7 +66,7 @@ const CountryDetail = ({ icon }) => {
                   <b>Currencies: </b>
                   {currencies.map((currency) => currency.name)} <br />
                   <b>Languages: </b>
-                  {languages.map((language) => language.name)}
+                  {languages.map((language) => `${language.name} `)}
                 </p>
               </div>
               <h2 className="detail-border">Border Countries: </h2>
