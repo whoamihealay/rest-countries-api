@@ -30,7 +30,7 @@ const Home = () => {
         <Filter icon={filtericon} />
       </section>
       <section className="country-grid">
-        <h1 className="sr-only">List of Countries</h1>
+        <h2 className="sr-only">List of Countries</h2>
         {loading ? (
           <Spinner />
         ) : (
