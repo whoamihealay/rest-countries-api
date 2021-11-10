@@ -98,18 +98,19 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ### What I learned
 
-- I learned how to implement Context with State Actions and Reducers. I am really happy with my apiState.js and apiReducer.js files. The search bar and Filter dropdown both interact with the state of the Countries array in a way that they both check if one another are active and function accordingly.
+- I learned how to implement Context with State Actions and Reducers. I am happy with my apiState.js and apiReducer.js files. The search bar and Filter dropdown both interact with the state of the Countries array in a way that they both check if one another is active and function accordingly.
 
-- On a full-stack side-project of mine I wrote a Django API Backend and React Frontend. Before this challenge I didn't know what API endpoints I would need/use. That resulted in a lot a data manipulation on the frontend and few Api endpoints. Thanks to FrontendMentor I have a better understanding what the frontend needs.
+- On a full-stack side-project I wrote a Django API Backend and React Frontend. Before this challenge, I didn't know what API endpoints I would need/use. That resulted in a lot of data manipulation on the Frontend and too few API endpoints. Thanks to FrontendMentor I have a better understanding of what the frontend needs.
 
-- This challenge is a turning point for me. I focused heavily on my workflow. <br> <br>Let's recap: I broke down the challenge into features: UI(Backgroungd, Header), UI components(SearchBar, Filter Button, Country Cards, Country Detail), Navigation(From the country card to the detail page), State (Context), Functions( Search Bar, Filter and DarkMode) and Unplanned. After each feature I would merge back to a develop branch (or experimental if I expected a few merge conflicts) and do some refactoring, commenting and/or small fixes. <br><br>
-  Then I asked my partner in crime (and wife) to find ways to break the app. She succeeded every single time up to v1.3. She is the sweetest human being I know but when it comes to testing she is pure chaos!
+- This challenge is a turning point for me. I focused heavily on my workflow. <br> <br>Let's recap: I broke down the challenge into features: UI(Background, Header), UI components(SearchBar, Filter Button, Country Cards, Country Detail), Navigation(From the country card to the detail page), State (Context), Functions( Search Bar, Filter, and DarkMode) and Unplanned. After each feature, I would merge back to a develop branch (or experimental if I expected a few merge conflicts) and do some refactoring, commenting, and/or small fixes. <br><br>
+  Then I asked my partner in crime (and wife) to find ways to break the app. She succeeded every single time up to v1.3. She is the sweetest human being I know and when it comes to testing she is pure chaos!
   <br><br>
-  Finally, I merge to main with a version tag and deploy to GitHug pages !
+  Finally, I merge to the main branch with a version tag and deploy to GitHub pages!
 
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
+In future development, I will focus on a test-driven workflow.
+In no particular order, I want to explore these concepts, libraries, and frameworks: Redux, Redis, Next.JS, GraphQL API, Java Spring boot.
 
 ### Useful resources
 
@@ -130,4 +131,4 @@ Use this section to outline areas that you want to continue focusing on in futur
 
 ## Acknowledgments
 
-A huge thank you to my wife Andrea for her unconditional support and love.
+A huge thank you to my wife Andrea for her unconditional support and love. To my parents the MVP's of my upbringing!
