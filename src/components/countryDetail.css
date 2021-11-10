@@ -69,6 +69,7 @@
 .border-btn:hover,
 .border-btn:active {
   background: var(--clr-hover);
+  cursor: pointer;
 }
 
 /* Tablet */

@@ -32,6 +32,7 @@ const ApiState = (props) => {
     },
     loading: false,
     searchActive: false,
+    filterActive: false,
   };
 
   const [state, dispatch] = useReducer(ApiReducer, initialState);
@@ -70,20 +71,39 @@ const ApiState = (props) => {
   const searchCountry = async (text) => {
     setLoading();
 
-    const res = await axios.get(
-      `https://restcountries.com/v2/name/${text}?fields=flags,name,population,region,capital,alpha3Code`
-    );
+    if (state.filterActive === true) {
+      const captext =
+        text.charAt(0).toUpperCase() + text.slice(1).toLowerCase();
 
-    if (typeof res.data.status === "undefined") {
+      const filterBySearch = (item) => {
+        if (item.name.includes(`${captext}`)) {
+          return true;
+        }
+        return false;
+      };
+
+      const res = state.countries.filter(filterBySearch);
+
       dispatch({
         type: SEARCH_COUNTRY,
-        payload: res.data,
+        payload: res,
       });
     } else {
-      dispatch({
-        type: ERROR,
-        payload: res.data,
-      });
+      const res = await axios.get(
+        `https://restcountries.com/v2/name/${text}?fields=flags,name,population,region,capital,alpha3Code`
+      );
+
+      if (typeof res.data.status === "undefined") {
+        dispatch({
+          type: SEARCH_COUNTRY,
+          payload: res.data,
+        });
+      } else {
+        dispatch({
+          type: ERROR,
+          payload: res.data,
+        });
+      }
     }
   };
 
@@ -101,8 +121,6 @@ const ApiState = (props) => {
       };
 
       const res = state.countries.filter(filterByRegion);
-
-      console.log(res);
 
       dispatch({
         type: FILTER_REGION,
