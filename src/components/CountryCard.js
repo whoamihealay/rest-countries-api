@@ -6,13 +6,15 @@ import "./countryCard.css";
 const CountryCard = ({ country }) => {
   const { flags, name, population, region, capital, alpha3Code } = country;
 
+  const popFormat = new Intl.NumberFormat().format(population);
+
   return (
     <Link to={`/country/${alpha3Code}`} className="country-card">
       <img className="flag" src={flags.svg} alt={`flag of ${name}`} />
       <h1 className="country-name">{name}</h1>
 
       <p className="country-basic-info">
-        <b>Population:</b> {population}
+        <b>Population:</b> {popFormat}
         <br />
         <b>Region:</b> {region}
         <br />
