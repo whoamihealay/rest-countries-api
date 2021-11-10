@@ -31,6 +31,8 @@ const CountryDetail = ({ icon }) => {
     borders,
   } = country;
 
+  const popFormat = new Intl.NumberFormat().format(population);
+
   useEffect(() => {
     getCountry(alpha);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -56,7 +58,7 @@ const CountryDetail = ({ icon }) => {
               <div className="detail-p-flex">
                 <p className="detail-info">
                   <b>Native Name:</b> {nativeName} <br />
-                  <b>Population:</b> {population} <br />
+                  <b>Population:</b> {popFormat} <br />
                   <b>Region:</b> {region} <br />
                   <b>Sub Region:</b> {subregion} <br />
                   <b>Capital:</b> {capital} <br />
