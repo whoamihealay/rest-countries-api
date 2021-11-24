@@ -38,8 +38,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [https://frontendmentor.io/profile/whoamihealay/solutions](https://www.frontendmentor.io/profile/whoamihealay/solutions)
-- Live Site URL: [https://whoamihealay.github.io/rest-countries-api](https://whoamihealay.github.io/rest-countries-api)
+- Solution URL: [frontendmentor.io](https://www.frontendmentor.io/solutions/react-axios-context-and-plain-old-css-ZSqLMN5jo)
+- Live Site URL: [whoamihealay.github.io/rest-countries-api](https://whoamihealay.github.io/rest-countries-api)
 
 ---
 
