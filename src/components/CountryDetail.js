@@ -5,6 +5,7 @@ import "./countryDetail.css";
 import Spinner from "./Spinner";
 
 import ApiContext from "../context/api/apiContext";
+import Border from "./Border";
 
 const CountryDetail = ({ icon }) => {
   const apiContext = useContext(ApiContext);
@@ -73,17 +74,10 @@ const CountryDetail = ({ icon }) => {
               </div>
               <h3 className="detail-border">Border Countries: </h3>
               <div className="border-div">
-                {borders.map((border) => (
-                  <Link to={`/country/${border}`} key={border}>
-                    <button
-                      className="border-btn"
-                      key={border}
-                      onClick={() => handleNav(border)}
-                    >
-                      {border}
-                    </button>
-                  </Link>
-                ))}
+                {borders &&
+                  borders.map((border, index) => (
+                    <Border key={index} border={border} handleNav={handleNav} />
+                  ))}
               </div>
             </div>
           </div>

@@ -30,6 +30,7 @@ const ApiState = (props) => {
       flags: {},
       alpha3Code: "",
     },
+
     loading: false,
     searchActive: false,
     filterActive: false,

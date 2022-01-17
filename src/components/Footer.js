@@ -20,7 +20,7 @@ const Footer = () => {
           </a>
           .
           <br />
-          Amazing pure svg loader spinner made by
+          Spinner made by
           <a href="https://codepen.io/nikhil8krishnan">Nikhil Krishnan</a>
         </div>
       </div>

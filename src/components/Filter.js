@@ -5,13 +5,9 @@ import "./filter.css";
 const Filter = ({ icon }) => {
   const [dropdown, setDropdown] = useState(false);
 
-  const toggleDropdown = () => {
-    setDropdown(!dropdown);
-  };
-
   return (
     <div className="filter-wrapper">
-      <button className="filter-btn" onClick={toggleDropdown}>
+      <button className="filter-btn" onClick={() => setDropdown(!dropdown)}>
         Filter by Region
         {icon}
       </button>

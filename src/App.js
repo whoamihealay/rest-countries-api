@@ -14,15 +14,8 @@ import ApiState from "./context/api/ApiState";
 
 function App() {
   const backIcon = <FaArrowLeft className="back-icon" />;
-  const [theme, setTheme] = useState(() => {
-    const saved = localStorage.getItem("theme");
-    return saved || "light";
-  });
+  const [theme, setTheme] = useState("");
   const body = document.body;
-
-  const loadTheme = () => {
-    body.classList.add(theme);
-  };
 
   const toggleTheme = () => {
     if (body.classList.contains("light")) {
@@ -37,9 +30,18 @@ function App() {
   };
 
   useEffect(() => {
-    loadTheme();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    if (
+      localStorage.theme === "dark" ||
+      (!("theme" in localStorage) &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches)
+    ) {
+      body.classList.add("dark");
+      setTheme("dark");
+    } else {
+      body.classList.add("light");
+      setTheme("light");
+    }
+  }, [body.classList]);
 
   return (
     <ApiState>
