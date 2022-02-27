@@ -2,7 +2,7 @@ import React from "react";
 import { FaMoon, FaRegMoon } from "react-icons/fa";
 import "./header.css";
 
-const Header = ({ toggleTheme, theme }) => {
+const Header = ({ toggleTheme, theme }: any) => {
   let icon;
   if (theme === "light") {
     icon = <FaRegMoon />;
