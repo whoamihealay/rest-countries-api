@@ -4,10 +4,10 @@ import {
   createSlice,
 } from "@reduxjs/toolkit";
 import countriesService from "./countriesService";
-
-// import { StatusFilters } from "../filters/filtersSlice";
 import { RootState } from "../../store";
 import { addIds } from "../../utils";
+
+// Types and Interfaces
 
 export type Country = {
   id: number;
@@ -21,7 +21,8 @@ export type Country = {
   capital: string[];
   region: string;
   subregion: string;
-  languages: object;
+  // TODO: Replace any by accurate type
+  languages: any;
   borders: string[];
   population: number;
   flags: {
@@ -38,6 +39,7 @@ interface IState {
   countries: Country[];
 }
 
+// INITIAL STATE
 const initialState: IState = {
   isLoading: false,
   isSucess: false,
@@ -64,30 +66,43 @@ export const getCountries = createAsyncThunk(
   }
 );
 
+// Select all countries in state returned from GET/Countries
 const selectCountryEntities = (state: {
   countries: { countries: Country[] };
 }) => state.countries.countries;
 
+// Selector: All countries
 export const selectCountries = createSelector(
   selectCountryEntities,
   (countries) => Object.values(countries)
 );
 
-export const selectCountryById = (state: any, countryId: number) => {
+// Select country by ID
+export const selectCountryById = (state: RootState, countryId: number) => {
   return selectCountries(state)[countryId];
 };
 
-// export const selectCountryByAlphaCode = (state, CountryCode) => {};
+export const selectCountryByAlphaCode = (
+  state: RootState,
+  countryCode: string
+) => {
+  return selectCountries(state).find(
+    (country) => country.cca3 === countryCode
+  )!;
+};
 
+// Selector: Cycle through Countries to create a Set of Regions and return Set as Array.
+// Set is used to eliminate duplicates
 export const selectRegions = createSelector(
   selectCountryEntities,
   (countries) => {
     const regionsSet = new Set<string>();
-    countries.map((country: Country) => regionsSet.add(country.region));
+    countries.forEach((country: Country) => regionsSet.add(country.region));
     return Array.from(regionsSet);
   }
 );
 
+// Selector: Return countries after filtered
 export const selectFilteredCountries = createSelector(
   selectCountries,
   (state: RootState) => state.filters,

@@ -1,40 +1,18 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Search from "../components/Search";
 import CountryCard from "../components/CountryCard";
 import Filter from "../components/Filter";
 import Spinner from "../components/Spinner";
 import { FaSearch, FaCaretDown } from "react-icons/fa";
 import "./home.css";
-import { useAppDispatch, useAppSelector } from "../hooks/redux";
-import {
-  getCountries,
-  reset,
-  selectFilteredCountriesByIds,
-} from "../features/countries/countriesSlice";
+import { useAppSelector } from "../hooks/redux";
+import { selectFilteredCountriesByIds } from "../features/countries/countriesSlice";
 
 const Home = () => {
-  const { isError, isLoading, message } = useAppSelector(
-    (state) => state.countries
-  );
-
+  const { isLoading } = useAppSelector((state) => state.countries);
   const countriesIds = useAppSelector(selectFilteredCountriesByIds);
-
-  const dispatch = useAppDispatch();
-
   const searchIcon = <FaSearch className="search-icon" />;
   const filtericon = <FaCaretDown className="filter-icon" />;
-
-  useEffect(() => {
-    if (isError) {
-      console.log(message);
-    }
-
-    dispatch(getCountries());
-
-    return () => {
-      dispatch(reset());
-    };
-  }, []);
 
   if (isLoading) {
     return <Spinner />;

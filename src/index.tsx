@@ -6,6 +6,9 @@ import store from "./store";
 
 import App from "./App";
 import "./index.css";
+import { getCountries } from "./features/countries/countriesSlice";
+
+store.dispatch(getCountries());
 
 ReactDOM.render(
   <React.StrictMode>
