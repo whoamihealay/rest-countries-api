@@ -6,12 +6,18 @@ import Spinner from "../components/Spinner";
 import { FaSearch, FaCaretDown } from "react-icons/fa";
 import "./home.css";
 import { useAppDispatch, useAppSelector } from "../hooks/redux";
-import { getCountries, reset } from "../features/countries/countriesSlice";
+import {
+  getCountries,
+  reset,
+  selectFilteredCountriesByIds,
+} from "../features/countries/countriesSlice";
 
 const Home = () => {
-  const { countries, isError, isLoading, message } = useAppSelector(
+  const { isError, isLoading, message } = useAppSelector(
     (state) => state.countries
   );
+
+  const countriesIds = useAppSelector(selectFilteredCountriesByIds);
 
   const dispatch = useAppDispatch();
 
@@ -44,9 +50,9 @@ const Home = () => {
       </section>
       <section className="country-grid">
         <h2 className="sr-only">List of Countries</h2>
-        {countries.length > 0 &&
-          countries.map((country) => (
-            <CountryCard key={country.cca3} country={country} />
+        {countriesIds.length > 0 &&
+          countriesIds.map((countryId) => (
+            <CountryCard key={countryId} countryId={countryId} />
           ))}
       </section>
     </main>
