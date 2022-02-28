@@ -1,7 +1,16 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import {
+  createAsyncThunk,
+  createSelector,
+  createSlice,
+} from "@reduxjs/toolkit";
 import countriesService from "./countriesService";
 
+// import { StatusFilters } from "../filters/filtersSlice";
+import { RootState } from "../../store";
+import { addIds } from "../../utils";
+
 export type Country = {
+  id: number;
   name: {
     common: string;
     official: string;
@@ -21,7 +30,7 @@ export type Country = {
   };
 };
 
-interface IInitialState {
+interface IState {
   isLoading: boolean;
   isError: boolean;
   isSucess: boolean;
@@ -29,7 +38,7 @@ interface IInitialState {
   countries: Country[];
 }
 
-const initialState: IInitialState = {
+const initialState: IState = {
   isLoading: false,
   isSucess: false,
   isError: false,
@@ -37,7 +46,9 @@ const initialState: IInitialState = {
   countries: [],
 };
 
-// Middleware / Thunks
+// THUNKS
+
+// GET countries for API
 export const getCountries = createAsyncThunk(
   "countries/get",
   async (_, thunkAPI) => {
@@ -51,6 +62,48 @@ export const getCountries = createAsyncThunk(
       return thunkAPI.rejectWithValue(message);
     }
   }
+);
+
+const selectCountryEntities = (state: {
+  countries: { countries: Country[] };
+}) => state.countries.countries;
+
+export const selectCountries = createSelector(
+  selectCountryEntities,
+  (countries) => Object.values(countries)
+);
+
+export const selectCountryById = (state: any, countryId: number) => {
+  return selectCountries(state)[countryId];
+};
+
+// export const selectCountryByAlphaCode = (state, CountryCode) => {};
+
+export const selectRegions = createSelector(
+  selectCountryEntities,
+  (countries) => {
+    const regionsSet = new Set<string>();
+    countries.map((country: Country) => regionsSet.add(country.region));
+    return Array.from(regionsSet);
+  }
+);
+
+export const selectFilteredCountries = createSelector(
+  selectCountries,
+  (state: RootState) => state.filters,
+  (countries, filters) => {
+    const { status } = filters;
+    const showAll = status === "All";
+    if (showAll) {
+      return countries;
+    }
+    return countries.filter((country: Country) => country.region === status);
+  }
+);
+
+export const selectFilteredCountriesByIds = createSelector(
+  selectFilteredCountries,
+  (filteredCountries) => filteredCountries.map((country: Country) => country.id)
 );
 
 // Reducers
@@ -73,7 +126,7 @@ export const countriesSlice = createSlice({
       .addCase(getCountries.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isSucess = true;
-        state.countries = action.payload;
+        state.countries = addIds(action.payload);
       })
       .addCase(getCountries.rejected, (state, action) => {
         state.isLoading = false;
