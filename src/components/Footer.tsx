@@ -19,9 +19,6 @@ const Footer = () => {
             Andrew
           </a>
           .
-          <br />
-          Spinner made by
-          <a href="https://codepen.io/nikhil8krishnan">Nikhil Krishnan</a>
         </div>
       </div>
     </footer>

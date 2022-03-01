@@ -1,20 +1,19 @@
 import React from "react";
-import { FaMoon, FaRegMoon } from "react-icons/fa";
+import { FaMoon, FaSun } from "react-icons/fa";
 import "./header.css";
 
-const Header = ({ toggleTheme, theme }) => {
-  let icon;
-  if (theme === "light") {
-    icon = <FaRegMoon />;
-  } else {
-    icon = <FaMoon />;
-  }
+interface IProps {
+  toggleTheme: () => void;
+  dark: boolean;
+}
 
+const Header = ({ toggleTheme, dark }: IProps) => {
   return (
     <header className="header">
       <h1 className="header-h1">Where in the world?</h1>
       <p id="dark" className="theme-btn" onClick={toggleTheme}>
-        {icon} Dark Mode
+        {dark ? <FaMoon /> : <FaSun />}
+        {dark ? "Dark" : "Light"} Mode
       </p>
     </header>
   );

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Dropdown from "./Dropdown";
 import "./filter.css";
 
-const Filter = ({ icon }) => {
+const Filter = ({ icon }: any) => {
   const [dropdown, setDropdown] = useState(false);
 
   return (
@@ -11,7 +11,7 @@ const Filter = ({ icon }) => {
         Filter by Region
         {icon}
       </button>
-      {dropdown && <Dropdown />}
+      {dropdown && <Dropdown close={setDropdown} />}
     </div>
   );
 };
