@@ -6,11 +6,11 @@ import Spinner from "../components/Spinner";
 import { FaSearch, FaCaretDown } from "react-icons/fa";
 import "./home.css";
 import { useAppSelector } from "../hooks/redux";
-import { selectFilteredCountriesByIds } from "../features/countries/countriesSlice";
+import { selectSearchedCountriesByIds } from "../features/countries/countriesSlice";
 
 const Home = () => {
   const { isLoading } = useAppSelector((state) => state.countries);
-  const countriesIds = useAppSelector(selectFilteredCountriesByIds);
+  const countriesIds = useAppSelector(selectSearchedCountriesByIds);
   const searchIcon = <FaSearch className="search-icon" />;
   const filtericon = <FaCaretDown className="filter-icon" />;
 
