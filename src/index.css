@@ -10,6 +10,13 @@
   --clr-white: hsl(0, 0%, 100%);
   --clr-hover: hsla(0, 0%, 50%, 0.3);
 
+  /* Default Theme */
+  --clr-elements: hsl(0, 0%, 100%);
+  --clr-bg: hsl(0, 0%, 98%);
+  --clr-text: hsl(200, 15%, 8%);
+  --clr-input: hsl(0, 0%, 52%);
+  --border-shadow: 4px solid hsla(0, 0%, 96%, 0.8);
+
   /* Typography */
   --ff-sans-normal: "Nunito Sans", sans-serif;
   --fs-900: 3rem;
@@ -31,14 +38,6 @@
   --clr-text: hsl(0, 0%, 100%);
   --clr-input: hsl(209, 23%, 22%);
   --border-shadow: 4px solid hsla(207, 26%, 17%, 0.8);
-}
-
-.light {
-  --clr-elements: hsl(0, 0%, 100%);
-  --clr-bg: hsl(0, 0%, 98%);
-  --clr-text: hsl(200, 15%, 8%);
-  --clr-input: hsl(0, 0%, 52%);
-  --border-shadow: 4px solid hsla(0, 0%, 96%, 0.8);
 }
 
 /* ***** */

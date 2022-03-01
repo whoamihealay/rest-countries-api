@@ -20,6 +20,10 @@
   font-size: var(--fs-400);
   font-weight: 600;
   cursor: pointer;
+  display: flex;
+  gap: 0.25rem;
+  align-items: center;
+  padding-inline: 1em;
 }
 
 /* Media Queries */

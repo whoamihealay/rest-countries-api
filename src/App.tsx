@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
 
 import "./App.css";
@@ -8,22 +8,20 @@ import Home from "./pages/Home";
 import Error from "./components/Error";
 
 import CountryDetail from "./pages/CountryDetail";
-import { FaArrowLeft } from "react-icons/fa";
 
 function App() {
-  const backIcon = <FaArrowLeft className="back-icon" />;
-  const [theme, setTheme] = useState("");
   const body = document.body;
+  const [dark, setDark] = useState(false);
 
   const toggleTheme = () => {
-    if (body.classList.contains("light")) {
-      setTheme("dark");
-      body.classList.replace("light", "dark");
-      localStorage.setItem("theme", "dark");
+    if (body.classList.contains("dark")) {
+      body.classList.remove("dark");
+      localStorage.removeItem("theme");
+      setDark(false);
     } else {
-      setTheme("light");
-      body.classList.replace("dark", "light");
-      localStorage.setItem("theme", "light");
+      body.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+      setDark(true);
     }
   };
 
@@ -34,23 +32,17 @@ function App() {
         window.matchMedia("(prefers-color-scheme: dark)").matches)
     ) {
       body.classList.add("dark");
-      setTheme("dark");
-    } else {
-      body.classList.add("light");
-      setTheme("light");
+      setDark(true);
     }
   }, [body.classList]);
 
   return (
     <Router>
       <div className="App">
-        <Header toggleTheme={toggleTheme} theme={theme} />
+        <Header toggleTheme={toggleTheme} dark={dark} />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route
-            path="country/:alpha"
-            element={<CountryDetail icon={backIcon} />}
-          />
+          <Route path="country/:alpha" element={<CountryDetail />} />
           <Route path="*" element={<Error />} />
         </Routes>
         <Footer />
