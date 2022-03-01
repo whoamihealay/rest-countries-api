@@ -1,28 +1,20 @@
-import axios from "axios";
 import React from "react";
-import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { selectCountryByAlphaCode } from "../features/countries/countriesSlice";
+import { useAppSelector } from "../hooks/redux";
 
-const Border = ({ border, handleNav }: any) => {
-  const [name, setName] = useState("");
+interface IProps {
+  border: string;
+}
 
-  useEffect(() => {
-    const getName = async () => {
-      const res = await axios.get(
-        `https://restcountries.com/v2/alpha/${border}?fields=name`
-      );
-      setName(res.data.name);
-    };
-    getName();
-  }, [border, name]);
+const Border = ({ border }: IProps) => {
+  const { name } = useAppSelector((state) =>
+    selectCountryByAlphaCode(state, border)
+  );
 
   return (
-    <Link
-      className="border-btn"
-      to={`/country/${border}`}
-      onClick={() => handleNav(border)}
-    >
-      {name}
+    <Link className="border-btn" to={`/country/${border}`}>
+      {name.common}
     </Link>
   );
 };

@@ -5,10 +5,12 @@ import "./countryDetail.css";
 import { FaArrowLeft } from "react-icons/fa";
 import { useAppSelector } from "../hooks/redux";
 import { selectCountryByAlphaCode } from "../features/countries/countriesSlice";
+import Spinner from "../components/Spinner";
 
-// import Border from "../components/Border";
+import Border from "../components/Border";
 
 const CountryDetail = ({ icon }: any) => {
+  const { isLoading } = useAppSelector((state) => state.countries);
   const { alpha } = useParams();
 
   const country = useAppSelector((state) =>
@@ -24,6 +26,7 @@ const CountryDetail = ({ icon }: any) => {
     capital,
     tld,
     languages,
+    borders,
   } = country;
 
   const popFormat = new Intl.NumberFormat().format(population);
@@ -35,7 +38,9 @@ const CountryDetail = ({ icon }: any) => {
           <FaArrowLeft className="back-icon" />
           <p className="back-p">Back</p>
         </Link>
-        {country && (
+        {isLoading ? (
+          <Spinner />
+        ) : (
           <div className="detail-flex">
             <img
               className="detail-flag"
@@ -60,10 +65,10 @@ const CountryDetail = ({ icon }: any) => {
               </div>
               <h3 className="detail-border">Border Countries: </h3>
               <div className="border-div">
-                {/* {borders &&
-                  borders.map((border, index) => (
-                    <Border key={index} border={border} handleNav={handleNav} />
-                  ))} */}
+                {borders &&
+                  borders.map((border) => (
+                    <Border key={border} border={border} />
+                  ))}
               </div>
             </div>
           </div>
