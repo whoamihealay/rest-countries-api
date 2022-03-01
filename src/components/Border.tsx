@@ -1,8 +1,9 @@
 import axios from "axios";
+import React from "react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-const Border = ({ border, handleNav }) => {
+const Border = ({ border, handleNav }: any) => {
   const [name, setName] = useState("");
 
   useEffect(() => {
