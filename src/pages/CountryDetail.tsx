@@ -59,12 +59,14 @@ const CountryDetail = ({ icon }: any) => {
                   <b>Population:</b> {popFormat} <br />
                   <b>Region:</b> {region} <br />
                   <b>Sub Region:</b> {subregion} <br />
-                  <b>Capital{suffix(capital, "", "s")}: </b>
-                  <ul>
-                    {capital.map((capital) => (
-                      <li key={capital}>{capital}</li>
-                    ))}
-                  </ul>
+                  <div className="flex">
+                    <b>Capital{suffix(capital, "", "s")}: </b>
+                    <ul>
+                      {capital.map((capital) => (
+                        <li key={capital}>{capital}</li>
+                      ))}
+                    </ul>
+                  </div>
                   <br />
                 </p>
                 <p className="detail-info">
