@@ -7,7 +7,7 @@ import countriesService from "./countriesService";
 import { RootState } from "../../store";
 import { addIds } from "../../utils";
 
-// Types and Interfaces
+// TYPES/INTERFACES
 
 export type Country = {
   id: number;
@@ -49,8 +49,6 @@ const initialState: IState = {
 };
 
 // THUNKS
-
-// GET countries for API
 export const getCountries = createAsyncThunk(
   "countries/get",
   async (_, thunkAPI) => {
@@ -66,18 +64,15 @@ export const getCountries = createAsyncThunk(
   }
 );
 
-// Select all countries in state returned from GET/Countries
 const selectCountryEntities = (state: {
   countries: { countries: Country[] };
 }) => state.countries.countries;
 
-// Selector: All countries
 export const selectCountries = createSelector(
   selectCountryEntities,
   (countries) => Object.values(countries)
 );
 
-// Select country by ID
 export const selectCountryById = (state: RootState, countryId: number) => {
   return selectCountries(state)[countryId];
 };
@@ -91,8 +86,6 @@ export const selectCountryByAlphaCode = (
   )!;
 };
 
-// Selector: Cycle through Countries to create a Set of Regions and return Set as Array.
-// Set is used to eliminate duplicates
 export const selectRegions = createSelector(
   selectCountryEntities,
   (countries) => {
@@ -102,7 +95,6 @@ export const selectRegions = createSelector(
   }
 );
 
-// Selector: Return countries after filtered
 export const selectFilteredCountries = createSelector(
   selectCountries,
   (state: RootState) => state.filters,
@@ -121,7 +113,29 @@ export const selectFilteredCountriesByIds = createSelector(
   (filteredCountries) => filteredCountries.map((country: Country) => country.id)
 );
 
-// Reducers
+export const selectSearchedCountries = createSelector(
+  selectFilteredCountries,
+  (state: RootState) => state.searches,
+  (countries, searches) => {
+    const { status } = searches;
+    const showAll = status === "";
+    if (showAll) {
+      return countries;
+    }
+    return countries.filter((country: Country) =>
+      country.name.common.includes(
+        status.trim().charAt(0).toUpperCase() + status.slice(1).toLowerCase()
+      )
+    );
+  }
+);
+
+export const selectSearchedCountriesByIds = createSelector(
+  selectSearchedCountries,
+  (searchedCountries) => searchedCountries.map((country: Country) => country.id)
+);
+
+// SLICE/REDUCERS
 export const countriesSlice = createSlice({
   name: "countries",
   initialState,
