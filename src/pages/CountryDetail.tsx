@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useParams } from "react-router-dom";
 import "./countryDetail.css";
 
-// import Spinner from "../components/Spinner";
+import { FaArrowLeft } from "react-icons/fa";
 import { useAppSelector } from "../hooks/redux";
 import { selectCountryByAlphaCode } from "../features/countries/countriesSlice";
 
@@ -32,7 +32,8 @@ const CountryDetail = ({ icon }: any) => {
     <main className="container">
       <section className="detail-section">
         <Link to="/" className="back-btn">
-          {icon} <p className="back-p">Back</p>
+          <FaArrowLeft className="back-icon" />
+          <p className="back-p">Back</p>
         </Link>
         {country && (
           <div className="detail-flex">
