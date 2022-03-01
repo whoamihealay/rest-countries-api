@@ -21,7 +21,7 @@ const CountryCard = ({ countryId }: IProps) => {
   return (
     country && (
       <Link to={`/country/${cca3}`} className="country-card">
-        <img className="flag" src={flags.svg} alt={`flag of ${name}`} />
+        <img className="flag" src={flags.svg} alt={`flag of ${name.common}`} />
         <h2 className="country-name">{name.common}</h2>
 
         <p className="country-basic-info">
@@ -29,7 +29,14 @@ const CountryCard = ({ countryId }: IProps) => {
           <br />
           <b>Region:</b> {region}
           <br />
-          <b>Capital:</b> {capital.map((capital) => capital)}
+          <div className="flex">
+            <b id="capital-id">Capital{capital.length === 1 ? "" : "s"}:</b>
+            <ul aria-labelledby="capital-id">
+              {capital.map((capital) => (
+                <li key={capital}>{capital}</li>
+              ))}
+            </ul>
+          </div>
         </p>
       </Link>
     )

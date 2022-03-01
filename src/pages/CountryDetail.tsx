@@ -31,6 +31,10 @@ const CountryDetail = ({ icon }: any) => {
 
   const popFormat = new Intl.NumberFormat().format(population);
 
+  const suffix = (array: any[], single: string, plural: string) => {
+    return array.length === 1 ? single : plural;
+  };
+
   return (
     <main className="container">
       <section className="detail-section">
@@ -55,15 +59,29 @@ const CountryDetail = ({ icon }: any) => {
                   <b>Population:</b> {popFormat} <br />
                   <b>Region:</b> {region} <br />
                   <b>Sub Region:</b> {subregion} <br />
-                  <b>Capital:</b> {capital} <br />
+                  <b>Capital{suffix(capital, "", "s")}: </b>
+                  <ul>
+                    {capital.map((capital) => (
+                      <li key={capital}>{capital}</li>
+                    ))}
+                  </ul>
+                  <br />
                 </p>
                 <p className="detail-info">
-                  <b>Top Level Domain:</b> {tld} <br />
+                  <b>Top Level Domain{suffix(tld, "", "s")}: </b>
+                  <ul>
+                    {tld.map((tld) => (
+                      <li key={tld}>{tld}</li>
+                    ))}
+                  </ul>
+                  <br />
                   <b>Languages: </b>
                   {Object.keys(languages).map((key) => `${languages[key]} `)}
                 </p>
               </div>
-              <h3 className="detail-border">Border Countries: </h3>
+              <h3 className="detail-border">
+                Border Countr{suffix(borders, "y", "ies")}:{" "}
+              </h3>
               <div className="border-div">
                 {borders &&
                   borders.map((border) => (
