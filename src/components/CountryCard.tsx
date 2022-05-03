@@ -24,7 +24,7 @@ const CountryCard = ({ countryId }: IProps) => {
         <img className="flag" src={flags.svg} alt={`flag of ${name.common}`} />
         <h2 className="country-name">{name.common}</h2>
 
-        <p className="country-basic-info">
+        <section className="country-basic-info">
           <b>Population:</b> {popFormat}
           <br />
           <b>Region:</b> {region}
@@ -37,7 +37,7 @@ const CountryCard = ({ countryId }: IProps) => {
               ))}
             </ul>
           </div>
-        </p>
+        </section>
       </Link>
     )
   );
