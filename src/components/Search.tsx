@@ -1,10 +1,9 @@
 import React, { useState } from "react";
+import { FaSearch } from "react-icons/fa";
 import { statusSearchChanged } from "../features/searches/searchesSlice";
 import { useAppDispatch } from "../hooks/redux";
 import useDebounce from "../hooks/useDebounce";
 import "./search.css";
-
-// import ApiContext from "../context/api/apiContext";
 
 const Search = ({ icon }: any) => {
   const [text, setText] = useState("");
@@ -20,7 +19,7 @@ const Search = ({ icon }: any) => {
 
   return (
     <form className="search-wrapper">
-      {icon}
+      <FaSearch className="search-icon" />
       <input
         className="search-bar"
         placeholder="Search for a country..."
