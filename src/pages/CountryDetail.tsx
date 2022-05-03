@@ -4,7 +4,10 @@ import "./countryDetail.css";
 
 import { FaArrowLeft } from "react-icons/fa";
 import { useAppSelector } from "../hooks/redux";
-import { selectCountryByAlphaCode } from "../features/countries/countriesSlice";
+import {
+  Country,
+  selectCountryByAlphaCode,
+} from "../features/countries/countriesSlice";
 import Spinner from "../components/Spinner";
 
 import Border from "../components/Border";
@@ -27,7 +30,7 @@ const CountryDetail = ({ icon }: any) => {
     tld,
     languages,
     borders,
-  } = country;
+  } = country as Country;
 
   const popFormat = new Intl.NumberFormat().format(population);
 
@@ -62,7 +65,7 @@ const CountryDetail = ({ icon }: any) => {
                   <div className="flex">
                     <b>Capital{suffix(capital, "", "s")}: </b>
                     <ul>
-                      {capital.map((capital) => (
+                      {capital.map((capital: string) => (
                         <li key={capital}>{capital}</li>
                       ))}
                     </ul>
@@ -78,7 +81,7 @@ const CountryDetail = ({ icon }: any) => {
                   </ul>
                   <br />
                   <b>Languages: </b>
-                  {Object.keys(languages).map((key) => `${languages[key]} `)}
+                  {Object.values(languages)}
                 </p>
               </div>
               <h3 className="detail-border">

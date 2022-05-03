@@ -21,10 +21,13 @@ export type Country = {
   capital: string[];
   region: string;
   subregion: string;
-  // TODO: Replace any by accurate type
-  languages: any;
+  languages: object;
   borders: string[];
   population: number;
+  maps: {
+    googleMaps: string;
+    openStreetMaps: string;
+  };
   flags: {
     png: string;
     svg: string;
@@ -64,6 +67,21 @@ export const getCountries = createAsyncThunk(
   }
 );
 
+export const getCountryDetail = createAsyncThunk(
+  "country/get",
+  async (code: string, thunkAPI) => {
+    try {
+      return await countriesService.getCountryDetail(code);
+    } catch (error: any) {
+      const message =
+        (error.response && error.response.data && error.data.message) ||
+        error.message ||
+        error.toString();
+      return thunkAPI.rejectWithValue(message);
+    }
+  }
+);
+
 const selectCountryEntities = (state: {
   countries: { countries: Country[] };
 }) => state.countries.countries;
@@ -81,9 +99,15 @@ export const selectCountryByAlphaCode = (
   state: RootState,
   countryCode: string
 ) => {
-  return selectCountries(state).find(
+  const data = selectCountries(state).find(
     (country) => country.cca3 === countryCode
-  )!;
+  );
+
+  if (!data) {
+    return getCountryDetail(countryCode);
+  }
+
+  return data;
 };
 
 export const selectRegions = createSelector(
