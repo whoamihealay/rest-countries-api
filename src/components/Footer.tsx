@@ -6,7 +6,7 @@ const Footer = () => {
     <footer className="footer">
       <div className="attribution">
         <div>
-          Challenge by
+          Challenge by{" "}
           <a
             href="https://www.frontendmentor.io?ref=challenge"
             target="_blank"
@@ -14,7 +14,7 @@ const Footer = () => {
           >
             Frontend Mentor
           </a>
-          . Coded by
+          . Coded by{" "}
           <a href="https://www.frontendmentor.io/profile/whoamihealay">
             Andrew
           </a>
