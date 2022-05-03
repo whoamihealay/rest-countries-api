@@ -57,7 +57,7 @@ const CountryDetail = ({ icon }: any) => {
             <div className="detail-div">
               <h2 className="detail-name">{name.common}</h2>
               <div className="detail-p-flex">
-                <p className="detail-info">
+                <div className="detail-info">
                   <b>Native Name:</b> {name.official} <br />
                   <b>Population:</b> {popFormat} <br />
                   <b>Region:</b> {region} <br />
@@ -71,8 +71,8 @@ const CountryDetail = ({ icon }: any) => {
                     </ul>
                   </div>
                   <br />
-                </p>
-                <p className="detail-info">
+                </div>
+                <div className="detail-info">
                   <b>Top Level Domain{suffix(tld, "", "s")}: </b>
                   <ul>
                     {tld.map((tld) => (
@@ -82,7 +82,7 @@ const CountryDetail = ({ icon }: any) => {
                   <br />
                   <b>Languages: </b>
                   {Object.values(languages)}
-                </p>
+                </div>
               </div>
               <h3 className="detail-border">
                 Border Countr{suffix(borders, "y", "ies")}:{" "}
