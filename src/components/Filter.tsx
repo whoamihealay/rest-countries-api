@@ -6,13 +6,10 @@ import "./filter.css";
 const Filter = () => {
   const [dropdown, setDropdown] = useState(false);
 
+  // TODO: Find solution to close dropdown when clicked outside the box without stopping dispatch
   return (
     <div className="filter-wrapper">
-      <button
-        className="filter-btn"
-        onClick={() => setDropdown(!dropdown)}
-        onBlur={() => setDropdown(false)}
-      >
+      <button className="filter-btn" onClick={() => setDropdown(!dropdown)}>
         Filter by Region
         <FaCaretDown className="filter-icon" />
       </button>
