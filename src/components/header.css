@@ -25,6 +25,7 @@
   align-items: center;
   padding-inline: 1em;
   background-color: transparent;
+  color: var(--clr-text);
 }
 
 /* Media Queries */

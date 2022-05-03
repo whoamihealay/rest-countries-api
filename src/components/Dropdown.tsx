@@ -3,22 +3,14 @@ import DropdownItem from "./DropdownItem";
 import "./dropdown.css";
 import { selectRegions } from "../features/countries/countriesSlice";
 import { useAppSelector } from "../hooks/redux";
-import { useAppDispatch } from "../hooks/redux";
-import { statusFilterChanged } from "../features/filters/filtersSlice";
 
 interface IProps {
-  close: (args: boolean) => void;
+  handleFilter: (arg0: string) => void;
   ariaExpanded: boolean;
 }
 
-const Dropdown = ({ close, ariaExpanded }: IProps) => {
+const Dropdown = ({ handleFilter, ariaExpanded }: IProps) => {
   const regions = useAppSelector(selectRegions);
-  const dispatch = useAppDispatch();
-
-  const handleFilter = (region: string) => {
-    dispatch(statusFilterChanged(region));
-    close(false);
-  };
 
   return (
     <ul className="dropdown" aria-expanded={ariaExpanded}>

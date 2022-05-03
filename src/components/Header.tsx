@@ -16,7 +16,6 @@ const Header = ({ toggleTheme, dark }: IProps) => {
         id="dark"
         className="theme-btn"
         onClick={toggleTheme}
-        style={{ color: dark ? "white" : "black" }}
       >
         {dark ? <FaMoon aria-label="dark" /> : <FaSun aria-label="light" />}
         {dark ? "Dark" : "Light"} Mode

@@ -8,7 +8,7 @@ interface IProps {
 const DropdownItem = ({ region, onClick }: IProps) => {
   return (
     <li className="dropdown-item" onClick={() => onClick(region)}>
-      {region}
+      <button className="btn">{region}</button>
     </li>
   );
 };

@@ -1,12 +1,20 @@
 import React, { useState } from "react";
 import { FaCaretDown } from "react-icons/fa";
+import { statusFilterChanged } from "../features/filters/filtersSlice";
+import { useAppDispatch } from "../hooks/redux";
 import Dropdown from "./Dropdown";
 import "./filter.css";
 
 const Filter = () => {
   const [dropdown, setDropdown] = useState(false);
 
-  // TODO: Find solution to close dropdown when clicked outside the box without stopping dispatch
+  const dispatch = useAppDispatch();
+
+  const handleFilter = (region: string) => {
+    dispatch(statusFilterChanged(region));
+    setDropdown(false);
+  };
+
   return (
     <div className="filter-wrapper">
       <button className="filter-btn" onClick={() => setDropdown(!dropdown)}>
@@ -16,7 +24,9 @@ const Filter = () => {
           className="filter-icon"
         />
       </button>
-      {dropdown && <Dropdown ariaExpanded={dropdown} close={setDropdown} />}
+      {dropdown && (
+        <Dropdown ariaExpanded={dropdown} handleFilter={handleFilter} />
+      )}
     </div>
   );
 };
