@@ -11,9 +11,12 @@ const Filter = () => {
     <div className="filter-wrapper">
       <button className="filter-btn" onClick={() => setDropdown(!dropdown)}>
         Filter by Region
-        <FaCaretDown className="filter-icon" />
+        <FaCaretDown
+          aria-label={dropdown ? "close" : "open"}
+          className="filter-icon"
+        />
       </button>
-      {dropdown && <Dropdown close={setDropdown} />}
+      {dropdown && <Dropdown ariaExpanded={dropdown} close={setDropdown} />}
     </div>
   );
 };

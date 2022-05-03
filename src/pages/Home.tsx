@@ -17,12 +17,12 @@ const Home = () => {
 
   return (
     <main className="container">
-      <section className="search-section">
+      <div className="search-section">
         <h2 className="sr-only">Search Bar</h2>
         <Search />
         <h2 className="sr-only">Filter Dropdown</h2>
         <Filter />
-      </section>
+      </div>
       <section className="country-grid">
         <h2 className="sr-only">List of Countries</h2>
         {countriesIds.length > 0 &&

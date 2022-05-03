@@ -11,10 +11,16 @@ const Header = ({ toggleTheme, dark }: IProps) => {
   return (
     <header className="header">
       <h1 className="header-h1">Where in the world?</h1>
-      <p id="dark" className="theme-btn" onClick={toggleTheme}>
-        {dark ? <FaMoon /> : <FaSun />}
+      <button
+        aria-label="theme button"
+        id="dark"
+        className="theme-btn"
+        onClick={toggleTheme}
+        style={{ color: dark ? "white" : "black" }}
+      >
+        {dark ? <FaMoon aria-label="dark" /> : <FaSun aria-label="light" />}
         {dark ? "Dark" : "Light"} Mode
-      </p>
+      </button>
     </header>
   );
 };

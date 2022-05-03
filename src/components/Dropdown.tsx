@@ -8,9 +8,10 @@ import { statusFilterChanged } from "../features/filters/filtersSlice";
 
 interface IProps {
   close: (args: boolean) => void;
+  ariaExpanded: boolean;
 }
 
-const Dropdown = ({ close }: IProps) => {
+const Dropdown = ({ close, ariaExpanded }: IProps) => {
   const regions = useAppSelector(selectRegions);
   const dispatch = useAppDispatch();
 
@@ -20,7 +21,7 @@ const Dropdown = ({ close }: IProps) => {
   };
 
   return (
-    <ul className="dropdown">
+    <ul className="dropdown" aria-expanded={ariaExpanded}>
       <DropdownItem key="All" region="All" onClick={handleFilter} />
       {regions.sort().map((region) => (
         <DropdownItem key={region} region={region} onClick={handleFilter} />

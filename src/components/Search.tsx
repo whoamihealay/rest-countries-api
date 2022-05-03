@@ -19,13 +19,18 @@ const Search = ({ icon }: any) => {
 
   return (
     <form className="search-wrapper">
-      <FaSearch className="search-icon" />
+      <FaSearch aria-label="search" className="search-icon" />
+      <label htmlFor="search-bar" className="sr-only">
+        input
+      </label>
       <input
+        id="search-bar"
         className="search-bar"
         placeholder="Search for a country..."
         onChange={(e) => setText(e.target.value)}
         onKeyPress={handleSubmit}
         value={text}
+        autoFocus
       />
     </form>
   );
