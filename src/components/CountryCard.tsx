@@ -30,11 +30,13 @@ const CountryCard = ({ countryId }: IProps) => {
           <b>Region:</b> {region}
           <br />
           <div className="flex">
-            <b id="capital-id">Capital{capital.length === 1 ? "" : "s"}:</b>
+            <b id="capital-id">Capital{capital.length <= 1 ? "" : "s"}:</b>
             <ul aria-labelledby="capital-id">
-              {capital.map((capital) => (
-                <li key={capital}>{capital}</li>
-              ))}
+              {capital.length > 0 ? (
+                capital.map((capital) => <li key={capital}>{capital}</li>)
+              ) : (
+                <li>No capital</li>
+              )}
             </ul>
           </div>
         </section>

@@ -42,7 +42,7 @@
 /* Laptop Screen */
 @media screen and (min-width: 769px) {
   .search-wrapper {
-    max-width: 485px;
+    max-width: clamp(485px, 100%, 60rem);
     width: 100%;
   }
 }

@@ -12,7 +12,7 @@ import Spinner from "../components/Spinner";
 
 import Border from "../components/Border";
 
-const CountryDetail = ({ icon }: any) => {
+const CountryDetail = () => {
   const { isLoading } = useAppSelector((state) => state.countries);
   const { alpha } = useParams();
 
@@ -27,10 +27,12 @@ const CountryDetail = ({ icon }: any) => {
     region,
     subregion,
     capital,
-    tld,
     languages,
+    tld,
     borders,
   } = country as Country;
+
+  const languagesList = languages ? Object.values(languages) : [];
 
   const popFormat = new Intl.NumberFormat().format(population);
 
@@ -73,25 +75,36 @@ const CountryDetail = ({ icon }: any) => {
                   <br />
                 </div>
                 <div className="detail-info">
-                  <b>Top Level Domain{suffix(tld, "", "s")}: </b>
-                  <ul>
-                    {tld.map((tld) => (
-                      <li key={tld}>{tld}</li>
-                    ))}
-                  </ul>
+                  <div className="flex">
+                    <b>Top Level Domain{suffix(tld, "", "s")}: </b>
+                    <ul>
+                      {tld.map((tld) => (
+                        <li key={tld}>{tld}</li>
+                      ))}
+                    </ul>
+                  </div>
                   <br />
                   <b>Languages: </b>
-                  {Object.values(languages)}
+                  {languagesList &&
+                    languagesList.map(
+                      (lang, index) =>
+                        `${lang}${
+                          languagesList.length - 1 == index ? "" : ", "
+                        }`
+                    )}
                 </div>
               </div>
               <h3 className="detail-border">
                 Border Countr{suffix(borders, "y", "ies")}:{" "}
               </h3>
               <div className="border-div">
-                {borders &&
+                {borders.length > 0 ? (
                   borders.map((border) => (
                     <Border key={border} border={border} />
-                  ))}
+                  ))
+                ) : (
+                  <div>No borders</div>
+                )}
               </div>
             </div>
           </div>

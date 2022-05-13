@@ -25,10 +25,13 @@ const Home = () => {
       </div>
       <section className="country-grid">
         <h2 className="sr-only">List of Countries</h2>
-        {countriesIds.length > 0 &&
+        {countriesIds.length > 0 ? (
           countriesIds.map((countryId) => (
             <CountryCard key={countryId} countryId={countryId} />
-          ))}
+          ))
+        ) : (
+          <section>Country not found</section>
+        )}
       </section>
     </main>
   );

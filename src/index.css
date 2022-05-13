@@ -166,7 +166,7 @@ select {
 .container {
   padding-inline: 1em;
   margin-inline: auto;
-  max-width: 80rem;
+  max-width: clamp(80rem, 75%, 120rem);
 }
 
 /* Tablet */

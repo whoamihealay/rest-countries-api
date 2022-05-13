@@ -10,14 +10,13 @@
 .filter-wrapper {
   margin: 1rem 0;
   border: var(--border-shadow);
+  width: clamp(13rem, 100%, 17rem);
   position: relative;
 }
 
 .filter-btn {
   position: relative;
   height: 4rem;
-  min-width: 13rem;
-  max-width: 17rem;
   width: 100%;
   display: flex;
   align-items: center;
@@ -30,9 +29,6 @@
 }
 
 @media screen and (min-width: 750px) {
-  .filter-btn {
-    width: 17rem;
-  }
 }
 
 /* Tablet */
@@ -41,9 +37,6 @@
 
 /* Laptop Screen */
 @media screen and (min-width: 769px) {
-  .filter-btn {
-    width: 17rem;
-  }
 }
 
 /* Desktop Screen */
